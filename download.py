@@ -228,21 +228,21 @@ def CreateFolder(folder_name):
         return None
 
 if __name__ == '__main__':
-    # data = get_list()
-    # for detail in data:
-    #     if 'application/vnd.google-apps.folder' == detail['mimeType']:
-    #         FolderDownload(
-    #             detail['id'],detail['name'],detail['mimeType']
-    #         )
-    #     else:
-    #         FileDownload(detail['id'],detail['name'],detail['mimeType'])
-    #     print(detail)
+    data = get_list()
+    for detail in data:
+        if 'application/vnd.google-apps.folder' == detail['mimeType']:
+            FolderDownload(
+                detail['id'],detail['name'],detail['mimeType']
+            )
+        else:
+            FileDownload(detail['id'],detail['name'],detail['mimeType'])
+        print(detail)
         # exit()
     # dir_list = os.listdir('/Users/alienpdev/Workspace/Research/DriveAPI/file')
     # for path in dir_list:
     #     print(path)
     #     FileUpload('/Users/alienpdev/Workspace/Research/DriveAPI/file/'+path)
-    folder_ids = {'testFolder': '1cpE6IWxqarUx7VVdld0s1azzZCHt_0It', 'Arsitektur dan Organisasi Komputer': '160xCjy8M8Rgit1Iy3xRh4O_YpBhiRKY9', 'Communicative Eng.': '13pF3s-3i2e_yUrc1z9K4KAxYLyr8wCed', 'file': '1M4EgNiTR3VyLHgesELx5bhLf4G_y1vrw', 'Matematika Diskrit': '1k2zFgANBQJkxA3jxSVAi97yRCTybhHgf', 'Struktur Data Teori + Praktek': '1lhP38v0yfoP-onlKrY9NCXjlGdsc_bIu'}
+    # folder_ids = {'testFolder': '1cpE6IWxqarUx7VVdld0s1azzZCHt_0It', 'Arsitektur dan Organisasi Komputer': '160xCjy8M8Rgit1Iy3xRh4O_YpBhiRKY9', 'Communicative Eng.': '13pF3s-3i2e_yUrc1z9K4KAxYLyr8wCed', 'file': '1M4EgNiTR3VyLHgesELx5bhLf4G_y1vrw', 'Matematika Diskrit': '1k2zFgANBQJkxA3jxSVAi97yRCTybhHgf', 'Struktur Data Teori + Praktek': '1lhP38v0yfoP-onlKrY9NCXjlGdsc_bIu'}
     # names = '/Users/alienpdev/Workspace/Research/DriveAPI'
     # for name in os.listdir(names):
     #     if os.path.isdir(name):
@@ -253,16 +253,16 @@ if __name__ == '__main__':
     # print(folder_ids)
 # 
     # exit()
-    listOfFiles = getListOfFiles('/Users/alienpdev/Workspace/Research/DriveAPI')
+    # listOfFiles = getListOfFiles('/Users/alienpdev/Workspace/Research/DriveAPI')
 
-    listOfFiles = list()
-    for (dirpath, dirnames, filenames) in os.walk('/Users/alienpdev/Workspace/Research/DriveAPI'):
-        for file in filenames:
-            if not 'venv' in dirpath and not '.git' in dirpath:
-                listOfFiles.append(os.path.join(dirpath, file))
-    for elem in listOfFiles:
-        folders = str(elem).split('/')[6]
-        if folders in folder_ids:
-            FileUpload(elem, folder_ids[folders])
-        else:
-            FileUpload(elem)
+    # listOfFiles = list()
+    # for (dirpath, dirnames, filenames) in os.walk('/Users/alienpdev/Workspace/Research/DriveAPI'):
+    #     for file in filenames:
+    #         if not 'venv' in dirpath and not '.git' in dirpath:
+    #             listOfFiles.append(os.path.join(dirpath, file))
+    # for elem in listOfFiles:
+    #     folders = str(elem).split('/')[6]
+    #     if folders in folder_ids:
+    #         FileUpload(elem, folder_ids[folders])
+    #     else:
+    #         FileUpload(elem)
